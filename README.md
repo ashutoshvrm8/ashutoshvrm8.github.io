@@ -1,2 +1,2 @@
 # ashutoshvrm8.github.io
-www.ashutoshverma.xyz
+https://www.ashutoshverma.xyz
