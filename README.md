@@ -1,2 +1,2 @@
 # ashutoshvrm8.github.io
-ashutoshvrm8.xyz
+http://www.ashutoshvrm8.xyz
