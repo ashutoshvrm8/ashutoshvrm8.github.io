@@ -39,11 +39,12 @@ $(document).ready(function() {
     }
   }
 
-  $("#main-nav").slideDown(700);
-
-  $('.responsive').on('click', function(e) {
-    $('.nav-menu').slideToggle();
-  });
+  if ($(window).width() < 768) {
+    $("#main-nav").css("display","none");
+  }
+  else {
+    $("#main-nav").slideDown(700);
+  }
 
   var typed = $(".typed");
 
