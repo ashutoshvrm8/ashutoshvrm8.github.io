@@ -50,7 +50,7 @@ $(document).ready(function() {
 
   $(function() {
     typed.typed({
-      strings: ["Ashutosh Verma.", "a Developer.", "a Dreamer.", "an Artist."],
+      strings: ["Hi", "My name is Ashutosh Verma.", "I'm a Developer."],
       typeSpeed: 100,
       loop: true,
     });
