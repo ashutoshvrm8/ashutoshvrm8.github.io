@@ -23,7 +23,7 @@
 100% {opacity:0}
 }
 
-@-webkit-keyframes arrow /*Safari and Chrome*/
+@-webkit-keyframes arrow
 {
 0% {opacity:0}
 40% {opacity:1}
