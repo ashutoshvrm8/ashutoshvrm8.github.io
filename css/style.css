@@ -162,6 +162,12 @@ nav {
   height: 40px;
 }
 
+@media(max-width: 1024px) {
+  .joystick-wrapper {
+    display: none;
+  }
+}
+
 .nav-menu {
   float: right;
   line-height: 32px;
