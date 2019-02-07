@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>
+      jQuery t-datepicker: Check-in And Check-out Date Range Picker Example
+    </title>
+    <link
+      href="https://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="theme/css/t-datepicker.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="theme/css/themes/t-datepicker-blue.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        min-height: 100vh;
+        font-family: "Roboto";
+      }
+      .container {
+        margin: 150px auto;
+        max-width: 960px;
+      }
+      .ui-datepicker td.holiday a,
+      .ui-datepicker td.holiday a:hover {
+        background: none #ffebaf;
+        border: 1px solid #bf5a0c;
+      }
+      .t-date-check-in,
+      .t-date-check-out {
+        display: none;
+      }
+      .crousel {
+        width: 655px;
+        height: 200px;
+        background-color: aquamarine;
+      }
+
+      .tab-container {
+        width: 100%;
+        height: 300px;
+      }
+      .new-container {
+        border: 1px solid black;
+        width: 655px;
+      }
+      .tab {
+        width: 655px;
+        text-align: center;
+        background: lightblue;
+      }
+      .tab span {
+        display: inline-block;
+        width: 50%;
+      }
+      .tab-container.tab-container2 {
+        display: none;
+      }
+      .tab span.selected {
+        background: red;
+      }
+      .t-datepicker-day {
+        top: 0px !important;
+      }
+      .t {
+        width: 49%;
+        height: 25px;
+      }
+      .tabbing {
+        display: none;
+      }
+      .t-day:focus {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div id="jquery-script-menu">
+      <div class="jquery-script-center">
+        <ul>
+          <li>
+            <a
+              href="https://www.jqueryscript.net/time-clock/Check-In-Out-Date-Range-Picker.html"
+              >Download This Plugin</a
+            >
+          </li>
+          <li>
+            <a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a>
+          </li>
+        </ul>
+        <div class="jquery-script-ads">
+          <script type="text/javascript">
+            <!--
+            google_ad_client = "ca-pub-2783044520727903";
+            /* jQuery_demo */
+            google_ad_slot = "2780937993";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //-->
+    <!-- </script>
+          <script
+            type="text/javascript"
+            src="https://pagead2.googlesyndication.com/pagead/show_ads.js"
+          ></script>
+        </div>
+        <div class="jquery-script-clear"></div>
+      </div>
+    </div>  -->
+    <div class="new-container">
+      <input class="ccheckin t" type="text" placeholder="Check-in" />
+      <!-- <span class="prev-checkin">Prev</span>
+      <span class="next-checkin">Next</span> -->
+      <input class="ccheckout t" type="text" placeholder="Check-out" />
+    </div>
+
+    <div class="new-container tabbing">
+      <div class="tab">
+        <span class="tab1 selected" data-container="tab-container1"
+          >Specific Dates</span
+        ><span class="tab2" data-container="tab-container2">Fexible dates</span>
+      </div>
+      <div class="tab-container tab-container1">
+        <div class="t-datepicker">
+          <div class="t-check-in"></div>
+          <div class="t-check-out"></div>
+        </div>
+      </div>
+      <div class="tab-container tab-container2">Tab 2 container</div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+      crossorigin="anonymous"
+    ></script>
+    <script src="theme/js/t-datepicker.js"></script>
+    <script src="./theme/js/haptics.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        function formatDate(date) {
+          var monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ];
+
+          var day = date.getDate();
+          var monthIndex = date.getMonth();
+          var year = date.getFullYear();
+
+          return year + "-" + (monthIndex + 1) + "-" + day;
+        }
+
+        function setPreviousDate(val) {
+          var date = new Date(val);
+
+          date.setDate(date.getDate() - 1);
+          date =
+            date.getFullYear() +
+            "-" +
+            (date.getMonth() + 1) +
+            "-" +
+            date.getDate();
+
+          $(".t-datepicker").tDatePicker({
+            dateCheckIn: date,
+            dateCheckOut: "2019-02-20"
+          });
+          $(".ccheckin").val(date);
+        }
+        function setNextDate(val) {
+          var date = new Date(val);
+
+          date.setDate(date.getDate() + 1);
+          date =
+            date.getFullYear() +
+            "-" +
+            (date.getMonth() + 1) +
+            "-" +
+            date.getDate();
+
+          $(".t-datepicker").tDatePicker({
+            dateCheckIn: date,
+            dateCheckOut: "2019-02-20"
+          });
+          $(".ccheckin").val(date);
+        }
+
+        var holiDays = {
+          "2019-01-01": "New Years is Day",
+          "2019-01-02": "Lorem ipsum dolor sit amet ...",
+          "2019-02-14": "Lorem ipsum dolor sit amet ...",
+          "2019-01-02": "Lorem ipsum dolor sit amet ..."
+        };
+        // Call global the function
+        $(".t-datepicker")
+          .tDatePicker({
+            fnDataEvent: holiDays,
+            mergeDataEvent: true,
+            numCalendar: 2,
+            startOfWeek: 2,
+            limitDateRanges: 180
+          })
+          .on("beforeShowDay", function() {
+            console.log("beforeShowDay do something");
+          })
+          .on("clickDateCI", function(e, dateCI) {
+            console.log("clickDateCI do something");
+          })
+          .on("selectedCI", function(e, slDateCI) {
+            // console.log('selectedCI do something')
+            // console.log(new Date(slDateCI));
+            $(".ccheckin").val(formatDate(new Date(slDateCI)));
+          })
+          .on("selectedCO", function(e, slDateCI) {
+            // console.log('selectedCI do something')
+            // console.log(new Date(slDateCI));
+            $(".ccheckout").val(formatDate(new Date(slDateCI)));
+            $(".tabbing").hide();
+          });
+        $(".tab1").on("click", function() {
+          $(".t-datepicker").tDatePicker("show");
+        });
+        // $(document).on("click", function(evt) {
+        //   $(".tabbing").hide();
+        // });
+        $(document).on("click", ".ccheckin", function() {
+          $(".t-datepicker").tDatePicker("show");
+          $(".t-date-check-in").trigger("click");
+          $(".tabbing").show();
+          $(".t-day").attr("tabindex","0");
+          Haptics.vibrate(200);
+        });
+        $(document).on("click", ".ccheckout", function() {
+          $(".t-datepicker").show();
+          $(".t-date-check-out").trigger("click");
+          $(".tabbing").show();
+          $(".t-day").attr("tabindex","0");
+          Haptics.vibrate(200);
+        });
+        
+        // binding enter on date
+
+        $(document).on("keydown", ".t-datepicker-day", function(e) {
+          switch (e.keyCode) {
+
+            case 13:  $(e.target).trigger('click');
+                      console.log(e.target);
+                      break;
+
+            case 38:  console.log("up");
+                      break;
+            
+            case 37:  console.log("left");
+                      let leftSibling = e.target.previousSibling;
+
+                      if (leftSibling != null) {
+                        leftSibling.focus();
+                      }
+                      else {
+                        let currentElement = e.target;
+                        let prevRow = $(currentElement).closest('tr').prev();
+                        $(prevRow).find(".t-day").focus();
+                      }
+                      break;
+
+            case 39:  console.log("right");
+                      let rightSibling = e.target.nextSibling;
+                      
+                      if (rightSibling != null && $(rightSibling).hasClass("t-day")) {
+                        rightSibling.focus();
+                      }
+                      else {
+                        let currentElement = e.target;
+                        let nextRow = $(currentElement).closest('tr').next();
+                        if($(currentElement).closest('tr').next().length == 1) {
+                          $(nextRow).find(".t-day")[0].focus();
+                        }
+                        else {
+                          console.log($(currentElement).closest('tr').next().length);
+                          //$(currentElement).closest('t-table-wrap').next().find(".t-day")[0].focus();
+                        }
+                      }
+                      break;
+                   
+            case 40:  console.log("down");
+                      break;
+          }
+        });
+
+        $(".tab span").on("click", function() {
+          var c = $(this).data("container");
+          $(".tab span").removeClass("selected");
+          $(this).addClass("selected");
+          $(".tab-container").hide();
+          $("." + c).show();
+        });
+
+        $(".prev-checkin").on("click", function() {
+          setPreviousDate($(".ccheckin").val());
+        });
+        $(".next-checkin").on("click", function() {
+          setNextDate($(".ccheckin").val());
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(["_setAccount", "UA-36251023-1"]);
+      _gaq.push(["_setDomainName", "jqueryscript.net"]);
+      _gaq.push(["_trackPageview"]);
+
+      (function() {
+        var ga = document.createElement("script");
+        ga.type = "text/javascript";
+        ga.async = true;
+        ga.src =
+          ("https:" == document.location.protocol
+            ? "https://ssl"
+            : "http://www") + ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
