@@ -23,7 +23,7 @@ $(document).ready(function() {
   var typed = $(".typed");
   $(function() {
     typed.typed({
-      strings: ["Hi...", "My name is Ashutosh Verma.", "I'm a Developer."],
+      strings: ["Hi...", "My name is Ashutosh Verma."],
       typeSpeed: 100,
       loop: true,
     });
