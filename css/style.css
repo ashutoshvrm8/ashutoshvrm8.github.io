@@ -172,6 +172,7 @@ nav {
   float: right;
   line-height: 32px;
   margin-bottom: 0;
+  text-shadow: 0 0 1px #fff, 0 0 0px #fff, 0px 0 0px #fff, 0 0 0px #228DFF, 0 0 0px #228DFF, 0 0 1px #228DFF, 0 0 20px #228DFF, 0 0 20px #228DFF;
 }
 
 nav ul li {
@@ -216,7 +217,7 @@ nav ul li a {
 }
 
 #header {
-  background: url("../images/home-bg.jpg") repeat scroll center / cover;
+  background: url("../images/home-bg1.jpg") repeat scroll center / cover;
   height: 100%;
   width: 100%;
 }
@@ -228,6 +229,7 @@ nav ul li a {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-shadow: 0 0 1px #fff, 0 0 0px #fff, 0px 0 0px #fff, 0 0 0px #228DFF, 0 0 0px #228DFF, 0 0 1px #228DFF, 0 0 20px #228DFF, 0 0 20px #228DFF;
 }
 
 .header-content h1 {
