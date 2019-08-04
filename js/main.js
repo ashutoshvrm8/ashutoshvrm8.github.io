@@ -19,7 +19,9 @@ $(document).ready(function() {
       }, 900);
     }
   });
+});
 
+window.onload= function () {
   var typed = $(".typed");
   $(function() {
     typed.typed({
@@ -28,4 +30,4 @@ $(document).ready(function() {
       loop: true,
     });
   });
-});
+};
