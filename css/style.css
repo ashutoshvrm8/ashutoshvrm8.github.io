@@ -222,6 +222,16 @@ nav ul li a {
   }
 }
 
+@media(min-width:1024px) {
+  .header-content .list-social li {
+    margin-right: 40px !important;
+    margin-top: 20px !important;
+  }
+  .header-content .list-social li i {
+    font-size: 50px !important;
+  }
+}
+
 #header {
   background: url("../images/home-bg1.jpg") repeat scroll center / cover;
   height: 100%;
@@ -259,6 +269,7 @@ nav ul li a {
 .header-content .list-social li {
   float: left;
   margin-right: 20px;
+  text-shadow: 0 0 1px #fff, 0 0 0px #fff, 0px 0 0px #fff, 0 0 0px #b9e01b, 0 0 0px #64d61c, 0 0 1px #2522ff, 0px 0px 20px #ff2222, -1px 20px 20px #4eff22;
 }
 
 .header-content .list-social li i {
